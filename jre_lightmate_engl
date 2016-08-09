@@ -1,0 +1,61 @@
+#!/bin/sh 
+
+# *******************************************************************************
+# * Lightmate Script, for setting up brightness on high accuracy, 		*
+# * for Laptops if hardware Buttons dosen't work anymore 			*
+# * version 1.2 								*
+# * date 09.04.2016								*
+# * 										*
+# * Abolute No Warranty (including this script and contact links / informations)*
+# * Attentions Root rights requiered!						*
+# *										*
+# * Free to use edit and / or distribute the code below by adding the following *
+# * proper Credits								*
+# * 										*	
+# * created by Joern Rettweiler 						*
+# * contact: Github.com/masterblogger	 or artificial-construction.com		*
+# * 										*	
+# *******************************************************************************
+
+
+#Start: script
+
+export PATH=$PATH':~/bin'
+
+
+
+cd /sys/class/backlight/intel_backlight 
+
+
+echo 
+echo 
+
+echo "Current Brightness"  
+echo 
+read -p "Please Enter a Value >50!!!" hellwert 
+echo 
+echo
+
+#begin IF-Loop A1
+if [ "$hellwert"  -le "50"  ]
+	then
+		echo " Value to small, display probably to dark "
+		exit 		
+	else
+		#user echo
+		echo "Brithness set at ${hellwert} "
+		
+		#switching brightness 
+		echo $hellwert | sudo tee brightness
+fi
+#end IF-Loop A1
+
+
+
+
+
+cd
+
+
+exit 0
+#end of Script
