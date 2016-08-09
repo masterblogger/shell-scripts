@@ -1,0 +1,87 @@
+#!/bin/sh 
+
+# erstellt durch Joern Rettweiler 
+# version 1.0 
+# date 28.04.2016
+
+# document device which are in your network 
+#
+#
+#
+#
+
+
+
+
+#(
+#change to normal directory
+cd
+
+export PATH=$PATH':~/bin'
+
+#EDIT this if you have another Directory for files
+cd /home/joern/ownCloud/scripte/script_output/
+
+#Setup date and clock 
+date >> net_users
+
+#EDIT this if you have another network like 134.132.3.1 
+sudo nmap -sn 192.168.6.1/24 >> net_users
+
+#cut Macadresses in a  Variable
+macadress=`grep -i "MAC" net_users | cut -c 14-28`
+
+ 
+#grab informations from List
+# Liste type "MACADRESS_OF_DEVICE_ | TYPE | MEMBER "
+ 
+#loop for request user in List pertymac
+
+
+	until i=$loopval
+		
+		do 	
+			#Line to read 
+			sed -n $cutrdln,$cutrdlnp
+
+			usrmac=``
+
+			grep -i "$usrmac" pertymac
+	
+
+		expr $loopval +1
+	done
+
+
+
+#first line of text
+echo "Personen_Name | Type | Macadress" >> pertymac
+echo " "  >> pertymac	
+echo "__________________________________ " >> pertymac
+
+
+ 
+
+
+
+#if [ "$hellwert"  -le "50"  ]
+#	then
+#		echo "Wert zu klein, Bildschirm evetl. dann zu dunkel"
+#		exit 		
+#	else
+#		#user echo
+#		echo "Helligleit auf ${hellwert} gesetzt "
+#		
+#		#switching brightness 
+#		echo $hellwert | sudo tee brightness
+#fi
+#end IF-Schlreife A1
+
+
+
+
+
+cd
+
+
+exit 0
