@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# erstellt durch Koern Rettweiler
+# version -0.3.1
+# requieres ROOT-PRIVILEGES 
+# OS: For FreeBSD 
+
+#TODO
+#problem dynamic changing url-Adress when new Version released
+
+
+
+#stop minecraft server
+sudo service minecraft stop
+
+wget https://s3.amazonaws.com/Minecraft.Download/versions/1.10.2/minecraft_server.1.10.2.jar 
+
+
+#insert here your curren Path of the Minecraft-Server
+cp Minecraft.jar /op/minecraft_srv/minecraft_server.jar
+
+
+#Start minecraft server
+sudo service minecraft start
+
+
+
+exit 0
